@@ -17,12 +17,15 @@ private readonly jinaRepository1: userRepo,
     }
 
     async createUser(dto: userModel): Promise<void> {
-
-        const hashPassword = await bcrypt.hash(dto.password, this.saltRound); // Hash the password
-
+        const hashPassword=await bcrypt.hash(dto.password,this.saltRound);
         const jinna=this.jinaRepository1.create({...dto,password:hashPassword});
-        await this.jinaRepository1.save(jinna);
 
+     await  this.jinaRepository1.save(jinna);
     }
+
+    async findOne(email:string):Promise<userModel>{
+ return await this.jinaRepository1.findOne({where:{email}});
+    }
+
     
 }

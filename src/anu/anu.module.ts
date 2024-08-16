@@ -3,10 +3,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AnuController } from './controllers/anu/anu.controller';
 import { AnuService } from './services/anu/anu.service';
 import { userModel } from './Entity/uesrEnitity.user';
+import { AuthModule } from 'src/auth-module/auth-module.module';
 
 @Module({
 
-    imports:[TypeOrmModule.forFeature([userModel]),],
+    imports:[TypeOrmModule.forFeature([userModel]), AuthModule],
     controllers:[AnuController],
     providers:[{
         provide: 'shakti',

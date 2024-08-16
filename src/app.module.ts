@@ -3,6 +3,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
 import { AnuModule } from './anu/anu.module';
+import { AuthModule } from './auth-module/auth-module.module';
+
 
 
 
@@ -32,6 +34,7 @@ useFactory: (configService: ConfigService) => ({
 }),
 
 AnuModule,
+AuthModule,
 ],
   controllers: [],
   providers: [],
